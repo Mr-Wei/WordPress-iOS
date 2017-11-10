@@ -96,7 +96,7 @@ class DomainsListViewController: UITableViewController, ImmuTablePresenter {
         WPStyleGuide.configureColors(for: view, andTableView: tableView)
 
         if let dotComID = blog.dotComID {
-            service.refreshDomainsForSite(Int(dotComID)) { _ in }
+            service.refreshDomainsForSite(dotComID.intValue) { _ in }
         }
     }
 

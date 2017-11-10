@@ -1580,35 +1580,35 @@ extension AztecPostViewController {
         mediaPickerController(mediaPicker.mediaPicker, didFinishPicking: mediaPicker.mediaPicker.selectedAssets)
     }
 
-    func toggleBold() {
+    @objc func toggleBold() {
         trackFormatBarAnalytics(stat: .editorTappedBold)
         richTextView.toggleBold(range: richTextView.selectedRange)
     }
 
 
-    func toggleItalic() {
+    @objc func toggleItalic() {
         trackFormatBarAnalytics(stat: .editorTappedItalic)
         richTextView.toggleItalic(range: richTextView.selectedRange)
     }
 
 
-    func toggleUnderline() {
+    @objc func toggleUnderline() {
         trackFormatBarAnalytics(stat: .editorTappedUnderline)
         richTextView.toggleUnderline(range: richTextView.selectedRange)
     }
 
 
-    func toggleStrikethrough() {
+    @objc func toggleStrikethrough() {
         trackFormatBarAnalytics(stat: .editorTappedStrikethrough)
         richTextView.toggleStrikethrough(range: richTextView.selectedRange)
     }
 
-    func toggleOrderedList() {
+    @objc func toggleOrderedList() {
         trackFormatBarAnalytics(stat: .editorTappedOrderedList)
         richTextView.toggleOrderedList(range: richTextView.selectedRange)
     }
 
-    func toggleUnorderedList() {
+    @objc func toggleUnorderedList() {
         trackFormatBarAnalytics(stat: .editorTappedUnorderedList)
         richTextView.toggleUnorderedList(range: richTextView.selectedRange)
     }
@@ -1642,7 +1642,7 @@ extension AztecPostViewController {
     }
 
 
-    func toggleBlockquote() {
+    @objc func toggleBlockquote() {
         trackFormatBarAnalytics(stat: .editorTappedBlockquote)
         richTextView.toggleBlockquote(range: richTextView.selectedRange)
     }
@@ -1669,7 +1669,7 @@ extension AztecPostViewController {
     }
 
 
-    func toggleLink() {
+    @objc func toggleLink() {
         trackFormatBarAnalytics(stat: .editorTappedLink)
 
         var linkTitle = ""

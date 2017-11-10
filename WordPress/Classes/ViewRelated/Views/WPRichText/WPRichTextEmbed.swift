@@ -14,7 +14,7 @@ class WPRichTextEmbed: UIView, UIWebViewDelegate, WPRichTextMediaAttachment {
             var contentSize = webView.scrollView.contentSize
             if let heightStr = webView.stringByEvaluatingJavaScript(from: "document.documentElement.scrollHeight") {
                 if let height = NumberFormatter().number(from: heightStr) {
-                    contentSize.height = CGFloat(height)
+                    contentSize.height = CGFloat(truncating: height)
                 }
             }
             return contentSize
