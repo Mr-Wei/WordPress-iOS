@@ -58,13 +58,13 @@ class WPRichTextFormatter {
             return nil
         }
 
-        var options: [String: Any] = [
-            NSAttributedString.DocumentAttributeKey.documentType.rawValue: NSAttributedString.DocumentType.html,
-            NSAttributedString.DocumentAttributeKey.characterEncoding.rawValue: NSNumber(value: String.Encoding.utf8.rawValue),
+        var options: [NSAttributedString.DocumentReadingOptionKey: Any] = [
+            .documentType: NSAttributedString.DocumentType.html,
+            .characterEncoding: NSNumber(value: String.Encoding.utf8.rawValue),
             ]
 
         if let defaultDocumentAttributes = defaultDocumentAttributes {
-            options[NSAttributedString.DocumentAttributeKey.defaultAttributes] = defaultDocumentAttributes as AnyObject?
+            options[.defaultAttributes] = defaultDocumentAttributes as AnyObject?
         }
 
         var attrString = try NSMutableAttributedString(data: data, options: options, documentAttributes: nil)
@@ -110,9 +110,9 @@ class WPRichTextFormatter {
 
                  mParagraphStyle.paragraphSpacing = round(pStyle.minimumLineHeight - font.xHeight) / 2.0
             }
-            let attributes: [String: Any] = [
-                NSAttributedStringKey.paragraphStyle.rawValue: mParagraphStyle,
-                NSAttributedStringKey.backgroundColor.rawValue: horizontalRuleColor
+            let attributes: [NSAttributedStringKey: Any] = [
+                .paragraphStyle: mParagraphStyle,
+                .backgroundColor: horizontalRuleColor
             ]
 
             let attachment = WPHorizontalRuleAttachment()

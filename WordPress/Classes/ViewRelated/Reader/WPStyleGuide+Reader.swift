@@ -20,14 +20,14 @@ extension WPStyleGuide {
 
     // MARK: - Original Post/Site Attribution Styles.
 
-    public class func originalAttributionParagraphAttributes() -> [String: AnyObject] {
+    public class func originalAttributionParagraphAttributes() -> [NSAttributedStringKey: AnyObject] {
         let font = WPStyleGuide.fontForTextStyle(originalAttributionTextStyle())
 
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = Cards.defaultLineSpacing
         return [
-            NSAttributedStringKey.paragraphStyle.rawValue: paragraphStyle,
-            NSAttributedStringKey.font.rawValue: font,
+            .paragraphStyle: paragraphStyle,
+            .font: font,
         ]
     }
 
@@ -97,19 +97,19 @@ extension WPStyleGuide {
         ]
     }
 
-    public class func readerCardTitleAttributes() -> [String: AnyObject] {
+    public class func readerCardTitleAttributes() -> [NSAttributedStringKey: AnyObject] {
         let font = WPStyleGuide.notoBoldFontForTextStyle(Cards.titleTextStyle)
 
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = Cards.titleLineSpacing
 
         return [
-            NSAttributedStringKey.paragraphStyle.rawValue: paragraphStyle,
-            NSAttributedStringKey.font.rawValue: font
+            .paragraphStyle: paragraphStyle,
+            .font: font
         ]
     }
 
-    public class func readerCardSummaryAttributes() -> [String: AnyObject] {
+    public class func readerCardSummaryAttributes() -> [NSAttributedStringKey: AnyObject] {
         let font = WPStyleGuide.notoFontForTextStyle(Cards.contentTextStyle)
 
         let paragraphStyle = NSMutableParagraphStyle()
@@ -117,22 +117,22 @@ extension WPStyleGuide {
         paragraphStyle.lineBreakMode = .byTruncatingTail
 
         return [
-            NSAttributedStringKey.paragraphStyle.rawValue: paragraphStyle,
-            NSAttributedStringKey.font.rawValue: font
+            .paragraphStyle: paragraphStyle,
+            .font: font
         ]
     }
 
-    public class func readerCardReadingTimeAttributes() -> [String: AnyObject] {
+    public class func readerCardReadingTimeAttributes() -> [NSAttributedStringKey: AnyObject] {
         let font = WPStyleGuide.fontForTextStyle(Cards.subtextTextStyle)
 
         return [
-            NSAttributedStringKey.font.rawValue: font,
+            .font: font,
         ]
     }
 
     // MARK: - Detail styles
 
-    public class func readerDetailTitleAttributes() -> [String: AnyObject] {
+    public class func readerDetailTitleAttributes() -> [NSAttributedStringKey: AnyObject] {
         let font = WPStyleGuide.notoBoldFontForTextStyle(Detail.titleTextStyle)
 
         let lineHeight = font.pointSize + 10.0
@@ -141,8 +141,8 @@ extension WPStyleGuide {
         paragraphStyle.maximumLineHeight = lineHeight
 
         return [
-            NSAttributedStringKey.paragraphStyle.rawValue: paragraphStyle,
-            NSAttributedStringKey.font.rawValue: font
+            .paragraphStyle: paragraphStyle,
+            .font: font
         ]
     }
 

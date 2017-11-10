@@ -2774,7 +2774,7 @@ extension AztecPostViewController {
         }
         let mediaService = MediaService(managedObjectContext: ContextManager.sharedInstance().mainContext)
         var uploadProgress: Progress?
-        mediaService.uploadMedia(media, progress: &uploadProgress, success: { _ in
+        mediaService.uploadMedia(media, progress: &uploadProgress, success: { () in
             guard let remoteURLStr = media.remoteURL, let remoteURL = URL(string: remoteURLStr) else {
                 return
             }
@@ -2989,17 +2989,17 @@ extension AztecPostViewController {
         WPAppAnalytics.track(.editorEditedImage, withProperties: [WPAppAnalyticsKeyEditorSource: Analytics.editorSource], with: post)
     }
 
-    var mediaMessageAttributes: [String: Any] {
+    var mediaMessageAttributes: [NSAttributedStringKey: Any] {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = .center
         let shadow = NSShadow()
         shadow.shadowOffset = CGSize(width: 1, height: 1)
         shadow.shadowColor = UIColor(white: 0, alpha: 0.6)
-        let attributes: [String: Any] = [NSAttributedStringKey.font.rawValue: UIFont.boldSystemFont(ofSize: 20),
-                                        NSAttributedStringKey.paragraphStyle.rawValue: paragraphStyle,
-                                        NSAttributedStringKey.foregroundColor.rawValue: UIColor.white,
-                                        NSAttributedStringKey.shadow.rawValue: shadow]
-        return attributes
+
+        return [.font: UIFont.boldSystemFont(ofSize: 20),
+                .paragraphStyle: paragraphStyle,
+                .foregroundColor: UIColor.white,
+                .shadow: shadow]
     }
 
     func placeholderImage(for attachment: NSTextAttachment) -> UIImage {

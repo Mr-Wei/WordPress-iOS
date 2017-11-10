@@ -3,10 +3,10 @@ import WordPressShared
 
 extension WPStyleGuide {
 
-    public class func defaultSearchBarTextAttributes(_ color: UIColor) -> [String: AnyObject] {
+    public class func defaultSearchBarTextAttributes(_ color: UIColor) -> [NSAttributedStringKey: AnyObject] {
         return [
-            NSAttributedStringKey.foregroundColor.rawValue: color,
-            NSAttributedStringKey.font.rawValue: WPStyleGuide.fontForTextStyle(.footnote)
+            .foregroundColor: color,
+            .font: WPStyleGuide.fontForTextStyle(.footnote)
         ]
     }
 }

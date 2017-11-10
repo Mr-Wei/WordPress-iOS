@@ -68,7 +68,7 @@ extension NSAttributedString {
 
     /// Converts a limited set of `NSAttributedString` attribute types from their
     /// raw objects (e.g. `UIColor`) into CSS text.
-    fileprivate class func cssStyleForAttributeName(_ attributeName: String, attribute: AnyObject) -> String? {
+    fileprivate class func cssStyleForAttributeName(_ attributeName: NSAttributedStringKey, attribute: AnyObject) -> String? {
         switch attributeName {
         case .font:
             if let font = attribute as? UIFont {
