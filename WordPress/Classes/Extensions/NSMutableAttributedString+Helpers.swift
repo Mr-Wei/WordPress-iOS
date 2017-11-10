@@ -9,7 +9,7 @@ extension NSMutableAttributedString {
     ///     - pattern: A Regex pattern that should be used to look up for matches
     ///     - styles: Collection of styles to be applied on the matched strings
     ///
-    public func applyStylesToMatchesWithPattern(_ pattern: String, styles: [String: AnyObject]) {
+    public func applyStylesToMatchesWithPattern(_ pattern: String, styles: [NSAttributedStringKey: AnyObject]) {
         do {
             let regex = try NSRegularExpression(pattern: pattern, options: .dotMatchesLineSeparators)
             let range = NSRange(location: 0, length: length)

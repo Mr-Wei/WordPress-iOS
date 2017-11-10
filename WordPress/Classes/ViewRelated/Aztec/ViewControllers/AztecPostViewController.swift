@@ -146,7 +146,7 @@ class AztecPostViewController: UIViewController, PostEditor {
         let placeholderText = NSLocalizedString("Title", comment: "Placeholder for the post title.")
         let titlePlaceholderLabel = UILabel()
 
-        let attributes = [NSAttributedStringKey.foregroundColor: Colors.title, NSAttributedStringKey.font: Fonts.title]
+        let attributes: [NSAttributedStringKey: Any] = [.foregroundColor: Colors.title, .font: Fonts.title]
         titlePlaceholderLabel.attributedText = NSAttributedString(string: placeholderText, attributes: attributes)
         titlePlaceholderLabel.sizeToFit()
         titlePlaceholderLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -835,7 +835,7 @@ class AztecPostViewController: UIViewController, PostEditor {
             pickerTitle = blogName
         }
 
-        let titleText = NSAttributedString(string: pickerTitle, attributes: [NSAttributedStringKey.font: Fonts.blogPicker])
+        let titleText = NSAttributedString(string: pickerTitle, attributes: [.font: Fonts.blogPicker])
         let shouldEnable = !isSingleSiteMode
 
         blogPickerButton.setAttributedTitle(titleText, for: .normal)
@@ -873,7 +873,7 @@ class AztecPostViewController: UIViewController, PostEditor {
                      UIKeyCommand(input: "U", modifierFlags: .command, action: #selector(toggleUnderline(_:)), discoverabilityTitle: NSLocalizedString("Underline", comment: "Discoverability title for underline formatting keyboard shortcut.")),
                      UIKeyCommand(input: "Q", modifierFlags: [.command, .alternate], action: #selector(toggleBlockquote), discoverabilityTitle: NSLocalizedString("Block Quote", comment: "Discoverability title for block quote keyboard shortcut.")),
                      UIKeyCommand(input: "K", modifierFlags: .command, action: #selector(toggleLink), discoverabilityTitle: NSLocalizedString("Insert Link", comment: "Discoverability title for insert link keyboard shortcut.")),
-                     UIKeyCommand(input: "M", modifierFlags: [.command, .alternate], action: #selector(presentMediaPicker), discoverabilityTitle: NSLocalizedString("Insert Media", comment: "Discoverability title for insert media keyboard shortcut.")),
+                     UIKeyCommand(input: "M", modifierFlags: [.command, .alternate], action: #selector(mediaMediaPickerWasPressed), discoverabilityTitle: NSLocalizedString("Insert Media", comment: "Discoverability title for insert media keyboard shortcut.")),
                      UIKeyCommand(input: "U", modifierFlags: [.command, .alternate], action: #selector(toggleUnorderedList), discoverabilityTitle: NSLocalizedString("Bullet List", comment: "Discoverability title for bullet list keyboard shortcut.")),
                      UIKeyCommand(input: "O", modifierFlags: [.command, .alternate], action: #selector(toggleOrderedList), discoverabilityTitle: NSLocalizedString("Numbered List", comment: "Discoverability title for numbered list keyboard shortcut.")),
                      UIKeyCommand(input: "H", modifierFlags: [.command, .shift], action: #selector(toggleEditingMode), discoverabilityTitle: NSLocalizedString("Toggle HTML Source ", comment: "Discoverability title for HTML keyboard shortcut."))
@@ -1793,7 +1793,7 @@ extension AztecPostViewController {
 
         for item in toolbar.items! {
             item.tintColor = WPStyleGuide.aztecFormatBarActiveColor
-            item.setTitleTextAttributes([NSAttributedStringKey.foregroundColor: WPStyleGuide.aztecFormatBarActiveColor], for: .normal)
+            item.setTitleTextAttributes([.foregroundColor: WPStyleGuide.aztecFormatBarActiveColor], for: .normal)
         }
 
         return toolbar
@@ -1844,7 +1844,7 @@ extension AztecPostViewController {
         richTextView.reloadInputViews()
     }
 
-    @IBAction func presentMediaPicker() {
+    @IBAction @objc func mediaMediaPickerWasPressed() {
         if let item = formatBar.leadingItem {
             presentMediaPicker(fromButton: item, animated: true)
         }
@@ -1948,9 +1948,9 @@ extension AztecPostViewController {
         trackFormatBarAnalytics(stat: .editorTappedHeader)
 
         let headerOptions = Constants.headers.map { headerType -> OptionsTableViewOption in
-            let attributes = [
-                NSAttributedStringKey.font: UIFont.systemFont(ofSize: CGFloat(headerType.fontSize)),
-                NSAttributedStringKey.foregroundColor: WPStyleGuide.darkGrey()
+            let attributes: [NSAttributedStringKey: Any] = [
+                .font: UIFont.systemFont(ofSize: CGFloat(headerType.fontSize)),
+                .foregroundColor: WPStyleGuide.darkGrey()
             ]
 
             let title = NSAttributedString(string: headerType.description, attributes: attributes)

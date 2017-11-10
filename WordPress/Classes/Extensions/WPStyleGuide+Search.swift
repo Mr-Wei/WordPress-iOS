@@ -30,19 +30,21 @@ extension WPStyleGuide {
 
     public class func configureSearchBarTextAppearance() {
         // Cancel button
-        let barButtonTitleAttributes: [String: Any] = [NSAttributedStringKey.font.rawValue: WPStyleGuide.fontForTextStyle(.headline),
-                                                       NSAttributedStringKey.foregroundColor.rawValue: WPStyleGuide.darkGrey()]
+        let barButtonTitleAttributes: [NSAttributedStringKey: Any] = [.font: WPStyleGuide.fontForTextStyle(.headline),
+                                                                      .foregroundColor: WPStyleGuide.darkGrey()]
+
         let barButtonItemAppearance = UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self])
         barButtonItemAppearance.setTitleTextAttributes(barButtonTitleAttributes, for: UIControlState())
 
         // Text field
-        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).defaultTextAttributes =
-            (WPStyleGuide.defaultSearchBarTextAttributes(WPStyleGuide.darkGrey()))
+        let textFieldAttributes = WPStyleGuide.defaultSearchBarTextAttributes(WPStyleGuide.darkGrey())
+        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).defaultTextAttributes = textFieldAttributes
+
         let placeholderText = NSLocalizedString("Search", comment: "Placeholder text for the search bar")
-        let attributedPlaceholderText =
-            NSAttributedString(string: placeholderText,
-                               attributes: WPStyleGuide.defaultSearchBarTextAttributes(WPStyleGuide.grey()))
-        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).attributedPlaceholder =
-            attributedPlaceholderText
+
+        let placeholderAttributes = WPStyleGuide.defaultSearchBarTextAttributesSwifted(WPStyleGuide.grey())
+        let attributedPlaceholderText = NSAttributedString(string: placeholderText, attributes: placeholderAttributes)
+
+        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).attributedPlaceholder = attributedPlaceholderText
     }
 }

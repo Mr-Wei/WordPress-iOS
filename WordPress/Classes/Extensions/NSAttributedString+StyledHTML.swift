@@ -22,7 +22,7 @@ extension NSAttributedString {
         guard let data = styledString.data(using: String.Encoding.utf8),
             let attributedString = try? NSMutableAttributedString(
             data: data,
-            options: [ NSAttributedString.DocumentAttributeKey.documentType: NSAttributedString.DocumentType.html, NSAttributedString.DocumentAttributeKey.characterEncoding: NSNumber(value: String.Encoding.utf8.rawValue) ],
+            options: [ .documentType: NSAttributedString.DocumentType.html, .characterEncoding: NSNumber(value: String.Encoding.utf8.rawValue) ],
             documentAttributes: nil) else {
                 // if creating the html-ed string fails (and it has, thus this change) we return the string without any styling
                 return NSAttributedString(string: htmlString)
@@ -68,7 +68,7 @@ extension NSAttributedString {
 
     /// Converts a limited set of `NSAttributedString` attribute types from their
     /// raw objects (e.g. `UIColor`) into CSS text.
-    fileprivate class func cssStyleForAttributeName(_ attributeName: NSAttributedStringKey, attribute: AnyObject) -> String? {
+    fileprivate class func cssStyleForAttributeName(_ attributeName: NSAttributedStringKey, attribute: Any) -> String? {
         switch attributeName {
         case .font:
             if let font = attribute as? UIFont {
@@ -97,7 +97,7 @@ extension NSAttributedString {
     }
 }
 
-public typealias StyledHTMLAttributes = [HTMLAttributeType: [String: AnyObject]]
+public typealias StyledHTMLAttributes = [HTMLAttributeType: [NSAttributedStringKey: Any]]
 
 public enum HTMLAttributeType: String {
     case BodyAttribute

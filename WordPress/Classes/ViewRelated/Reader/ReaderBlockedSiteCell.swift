@@ -24,11 +24,14 @@ open class ReaderBlockedSiteCell: UITableViewCell {
         let str = NSString(format: format as NSString, name)
         let range = str.range(of: name)
 
-        let attributes = WPStyleGuide.subtitleAttributes()
-        let boldAttributes = WPStyleGuide.subtitleAttributesBold()
+        let attributes = WPStyleGuide.subtitleAttributes() as! [String: Any]
+        let attributesSwifted = NSAttributedStringKey.convertFromRaw(attributes: attributes)
 
-        let attrStr = NSMutableAttributedString(string: str as String, attributes: attributes as? [String: AnyObject])
-        attrStr.setAttributes(boldAttributes as? [String: AnyObject], range: range)
+        let boldAttributes = WPStyleGuide.subtitleAttributesBold() as! [String: Any]
+        let boldAttributesSwifted = NSAttributedStringKey.convertFromRaw(attributes: boldAttributes)
+
+        let attrStr = NSMutableAttributedString(string: str as String, attributes: attributesSwifted)
+        attrStr.setAttributes(boldAttributesSwifted, range: range)
         label.attributedText = attrStr
     }
 

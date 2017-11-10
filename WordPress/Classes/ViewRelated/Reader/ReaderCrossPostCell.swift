@@ -13,15 +13,15 @@ open class ReaderCrossPostCell: UITableViewCell {
 
     // MARK: - Accessors
 
-    fileprivate lazy var readerCrossPostTitleAttributes: [String: AnyObject] = {
+    fileprivate lazy var readerCrossPostTitleAttributes: [NSAttributedStringKey: AnyObject] = {
         return WPStyleGuide.readerCrossPostTitleAttributes()
     }()
 
-    fileprivate lazy var readerCrossPostSubtitleAttributes: [String: AnyObject] = {
+    fileprivate lazy var readerCrossPostSubtitleAttributes: [NSAttributedStringKey: AnyObject] = {
         return WPStyleGuide.readerCrossPostSubtitleAttributes()
     }()
 
-    fileprivate lazy var readerCrossPostBoldSubtitleAttributes: [String: AnyObject] = {
+    fileprivate lazy var readerCrossPostBoldSubtitleAttributes: [NSAttributedStringKey: AnyObject] = {
         return WPStyleGuide.readerCrossPostBoldSubtitleAttributes()
     }()
 

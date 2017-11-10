@@ -58,42 +58,42 @@ extension WPStyleGuide {
 
     // MARK: - Card Attributed Text Attributes
 
-    public class func readerCrossPostTitleAttributes() -> [String: AnyObject] {
+    public class func readerCrossPostTitleAttributes() -> [NSAttributedStringKey: AnyObject] {
         let font = WPStyleGuide.notoBoldFontForTextStyle(Cards.titleTextStyle)
 
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = Cards.crossPostLineSpacing
 
         return [
-            NSAttributedStringKey.paragraphStyle.rawValue: paragraphStyle,
-            NSAttributedStringKey.font.rawValue: font,
-            NSAttributedStringKey.foregroundColor.rawValue: darkGrey()
+            .paragraphStyle: paragraphStyle,
+            .font: font,
+            .foregroundColor: darkGrey()
         ]
     }
 
-    public class func readerCrossPostBoldSubtitleAttributes() -> [String: AnyObject] {
+    public class func readerCrossPostBoldSubtitleAttributes() -> [NSAttributedStringKey: AnyObject] {
         let font = WPStyleGuide.fontForTextStyle(Cards.crossPostSubtitleTextStyle, symbolicTraits: .traitBold)
 
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = Cards.crossPostLineSpacing
 
         return [
-            NSAttributedStringKey.paragraphStyle.rawValue: paragraphStyle,
-            NSAttributedStringKey.font.rawValue: font,
-            NSAttributedStringKey.foregroundColor.rawValue: grey()
+            .paragraphStyle: paragraphStyle,
+            .font: font,
+            .foregroundColor: grey()
         ]
     }
 
-    public class func readerCrossPostSubtitleAttributes() -> [String: AnyObject] {
+    public class func readerCrossPostSubtitleAttributes() -> [NSAttributedStringKey: AnyObject] {
         let font = WPStyleGuide.fontForTextStyle(Cards.crossPostSubtitleTextStyle)
 
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = Cards.crossPostLineSpacing
 
         return [
-            NSAttributedStringKey.paragraphStyle.rawValue: paragraphStyle,
-            NSAttributedStringKey.font.rawValue: font,
-            NSAttributedStringKey.foregroundColor.rawValue: grey()
+            .paragraphStyle: paragraphStyle,
+            .font: font,
+            .foregroundColor: grey()
         ]
     }
 
@@ -149,7 +149,7 @@ extension WPStyleGuide {
 
     // MARK: - Stream Header Attributed Text Attributes
 
-    public class func readerStreamHeaderDescriptionAttributes() -> [String: AnyObject] {
+    public class func readerStreamHeaderDescriptionAttributes() -> [NSAttributedStringKey: AnyObject] {
         let font = WPStyleGuide.notoFontForTextStyle(Cards.contentTextStyle)
 
         let paragraphStyle = NSMutableParagraphStyle()
@@ -157,8 +157,8 @@ extension WPStyleGuide {
         paragraphStyle.alignment = .center
 
         return [
-            NSAttributedStringKey.paragraphStyle.rawValue: paragraphStyle,
-            NSAttributedStringKey.font.rawValue: font
+            .paragraphStyle: paragraphStyle,
+            .font: font
         ]
     }
 

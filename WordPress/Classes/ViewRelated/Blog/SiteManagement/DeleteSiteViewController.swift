@@ -113,9 +113,9 @@ open class DeleteSiteViewController: UITableViewController {
 
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = .left
-        let attributes = [ NSAttributedStringKey.font: UIFont.systemFont(ofSize: 17.0),
-                           NSAttributedStringKey.foregroundColor: WPStyleGuide.darkGrey(),
-                           NSAttributedStringKey.paragraphStyle: paragraphStyle ]
+        let attributes: [NSAttributedStringKey: Any] = [ .font: UIFont.systemFont(ofSize: 17.0),
+                                                         .foregroundColor: WPStyleGuide.darkGrey(),
+                                                         .paragraphStyle: paragraphStyle ]
         let htmlAttributes: StyledHTMLAttributes = [ .BodyAttribute: attributes]
 
         let attributedText1 = NSAttributedString.attributedStringWithHTML(paragraph1, attributes: htmlAttributes)
@@ -232,7 +232,7 @@ open class DeleteSiteViewController: UITableViewController {
                                     self?.updateNavigationStackAfterSiteDeletion()
 
                                     let accountService = AccountService(managedObjectContext: ContextManager.sharedInstance().mainContext)
-                                    accountService.updateUserDetails(for: (accountService.defaultWordPressComAccount()!), success: { _ in }, failure: { _ in })
+                                    accountService.updateUserDetails(for: (accountService.defaultWordPressComAccount()!), success: { () in }, failure: { _ in })
             },
                                   failure: { error in
                                     DDLogError("Error deleting site: \(error.localizedDescription)")

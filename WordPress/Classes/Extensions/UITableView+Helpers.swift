@@ -89,7 +89,7 @@ extension UITableView {
 
     /// Default Disable Edition Action Delay
     ///
-    fileprivate static let defaultDelay = TimeInterval(0.2)
+    public static let defaultDelay = TimeInterval(0.2)
 
     /// Returns true if the table view does not have any rows
     ///
