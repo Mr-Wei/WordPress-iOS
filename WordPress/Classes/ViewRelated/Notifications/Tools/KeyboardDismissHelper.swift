@@ -161,33 +161,33 @@ import UIKit
 
 
     // MARK: - Notification Helpers
-    func keyboardWillShow(_ note: Foundation.Notification) {
+    @objc func keyboardWillShow(_ note: Foundation.Notification) {
         isKeyboardVisible = true
         refreshBottomInsetIfNeeded(note)
         onWillShow?()
     }
 
-    func keyboardDidShow(_ note: Foundation.Notification) {
+    @objc func keyboardDidShow(_ note: Foundation.Notification) {
         refreshBottomInsetIfNeeded(note)
         onDidShow?()
     }
 
-    func keyboardWillHide(_ note: Foundation.Notification) {
+    @objc func keyboardWillHide(_ note: Foundation.Notification) {
         isKeyboardVisible = false
         refreshBottomInsetIfNeeded(note, isHideEvent: true)
         onWillHide?()
     }
 
-    func keyboardDidHide(_ note: Foundation.Notification) {
+    @objc func keyboardDidHide(_ note: Foundation.Notification) {
         refreshBottomInsetIfNeeded(note, isHideEvent: true)
         onDidHide?()
     }
 
-    func keyboardWillChangeFrame(_ note: Foundation.Notification) {
+    @objc func keyboardWillChangeFrame(_ note: Foundation.Notification) {
         onWillChangeFrame?()
     }
 
-    func keyboardDidChangeFrame(_ note: Foundation.Notification) {
+    @objc func keyboardDidChangeFrame(_ note: Foundation.Notification) {
         onDidChangeFrame?()
     }
 

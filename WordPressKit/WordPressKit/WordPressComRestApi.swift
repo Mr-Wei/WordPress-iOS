@@ -424,7 +424,7 @@ final class WordPressComRestAPIResponseSerializer: AFJSONResponseSerializer {
         userInfo[NSLocalizedDescriptionKey] =  errorDescription
         error?.pointee = NSError(domain: nserror.domain,
                                code: nserror.code,
-                               userInfo: userInfo
+                               userInfo: userInfo as! [String : Any]
             )
         return responseObject as AnyObject?
     }

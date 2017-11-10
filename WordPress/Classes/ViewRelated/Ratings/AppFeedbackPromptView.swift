@@ -76,7 +76,7 @@ class AppFeedbackPromptView: UIView {
         container.addSubview(rightButton)
     }
 
-    func leftButtonTouched() {
+    @objc func leftButtonTouched() {
         if onRequestingFeedback {
             delegate?.gatherFeedback()
         } else {
@@ -91,7 +91,7 @@ class AppFeedbackPromptView: UIView {
         }
     }
 
-    func rightButtonTouched() {
+    @objc func rightButtonTouched() {
         if onRequestingFeedback {
             delegate?.dismissPrompt()
         } else {

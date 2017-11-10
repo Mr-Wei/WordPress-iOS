@@ -221,7 +221,7 @@ import Gridicons
     }
 
 
-    func handleBackgroundTap(_ gesture: UITapGestureRecognizer) {
+    @objc func handleBackgroundTap(_ gesture: UITapGestureRecognizer) {
         endSearch()
     }
 

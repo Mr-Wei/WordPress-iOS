@@ -216,7 +216,7 @@ class NUXAbstractViewController: UIViewController, LoginSegueHandler {
 
     /// Updates the badge count and its visibility.
     ///
-    func handleHelpshiftUnreadCountUpdated(_ notification: Foundation.Notification) {
+    @objc func handleHelpshiftUnreadCountUpdated(_ notification: Foundation.Notification) {
         let count = HelpshiftUtils.unreadNotificationCount()
         helpBadge.text = "\(count)"
         helpBadge.isHidden = (count == 0)
@@ -226,17 +226,17 @@ class NUXAbstractViewController: UIViewController, LoginSegueHandler {
     // MARK: - Actions
 
 
-    func handleBackgroundTapGesture(_ tgr: UITapGestureRecognizer) {
+    @objc func handleBackgroundTapGesture(_ tgr: UITapGestureRecognizer) {
         view.endEditing(true)
     }
 
 
-    func handleCancelButtonTapped(_ sender: UIButton) {
+    @objc func handleCancelButtonTapped(_ sender: UIButton) {
         dismiss(cancelled: true)
     }
 
 
-    func handleHelpButtonTapped(_ sender: UIButton) {
+    @objc func handleHelpButtonTapped(_ sender: UIButton) {
         displaySupportViewController(sourceTag: sourceTag)
     }
 }

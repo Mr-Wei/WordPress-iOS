@@ -127,7 +127,7 @@ private enum ReaderCardDiscoverAttribution: Int {
         let font = WPStyleGuide.fontForTextStyle(WPStyleGuide.originalAttributionTextStyle(), symbolicTraits: .traitItalic)
         let attributes = originalAttributionParagraphAttributes as! [String: AnyObject]
         let attributedString = NSMutableAttributedString(string: str, attributes: attributes)
-        attributedString.addAttribute(NSFontAttributeName, value: font, range: range)
+        attributedString.addAttribute(.font, value: font, range: range)
         textLabel.textColor = WPStyleGuide.mediumBlue()
         textLabel.highlightedTextColor = WPStyleGuide.lightBlue()
         textLabel.attributedText = attributedString

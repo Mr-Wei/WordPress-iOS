@@ -112,7 +112,7 @@ extension UINavigationBar {
             layer.add(fadeAnimation, forKey: "fadeNavigationBar")
         }
 
-        titleTextAttributes = [NSForegroundColorAttributeName: color]
+        titleTextAttributes = [NSAttributedStringKey.foregroundColor: color]
         tintColor = color
     }
 }

@@ -45,8 +45,8 @@ extension WPStyleGuide {
         let onePasswordButton = UIButton(type: .custom)
         onePasswordButton.setImage(UIImage(named: "onepassword-wp-button"), for: UIControlState())
         onePasswordButton.sizeToFit()
-        onePasswordButton.setContentHuggingPriority(UILayoutPriorityRequired, for: .horizontal)
-        onePasswordButton.setContentCompressionResistancePriority(UILayoutPriorityRequired, for: .horizontal)
+        onePasswordButton.setContentHuggingPriority(.required, for: .horizontal)
+        onePasswordButton.setContentCompressionResistancePriority(.required, for: .horizontal)
 
         stack.addArrangedSubview(onePasswordButton)
 
@@ -73,7 +73,7 @@ extension WPStyleGuide {
     ///
     class func mediumWeightFont(forStyle style: UIFontTextStyle) -> UIFont {
         let fontToGetSize = WPStyleGuide.fontForTextStyle(style)
-        return UIFont.systemFont(ofSize: fontToGetSize.pointSize, weight: UIFontWeightMedium)
+        return UIFont.systemFont(ofSize: fontToGetSize.pointSize, weight: UIFont.Weight.medium)
     }
 
     // MARK: - Google Signin Button Methods
@@ -115,7 +115,7 @@ extension WPStyleGuide {
         // 👇 don't want to crash when a translation lacks "{G}"
         let lastPart = labelParts.indices.contains(1) ? labelParts[1] : ""
 
-        let labelString = NSMutableAttributedString(string: firstPart, attributes: [NSForegroundColorAttributeName: WPStyleGuide.greyDarken30()])
+        let labelString = NSMutableAttributedString(string: firstPart, attributes: [NSAttributedStringKey.foregroundColor: WPStyleGuide.greyDarken30()])
 
         if let googleIcon = UIImage(named: "google"), lastPart != "" {
             let googleAttachment = NSTextAttachment()
@@ -125,7 +125,7 @@ extension WPStyleGuide {
             labelString.append(iconString)
         }
 
-        labelString.append(NSAttributedString(string: lastPart, attributes: [NSForegroundColorAttributeName: linkColor]))
+        labelString.append(NSAttributedString(string: lastPart, attributes: [NSAttributedStringKey.foregroundColor: linkColor]))
 
         return labelString
     }

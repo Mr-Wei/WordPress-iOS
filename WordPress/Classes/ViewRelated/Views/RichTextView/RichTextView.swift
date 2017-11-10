@@ -205,7 +205,7 @@ import Foundation
 
 
     // MARK: - UITapGestureRecognizer Helpers
-    open func handleTextViewTap(_ recognizer: UITapGestureRecognizer) {
+    @objc open func handleTextViewTap(_ recognizer: UITapGestureRecognizer) {
 
         // NOTE: Why do we need this?
         // Because this mechanism allows us to disable DataDetectors, and yet, detect taps on links.
@@ -224,7 +224,7 @@ import Foundation
         }
 
         // Load the NSURL instance, if any
-        let rawURL = textStorage.attribute(NSLinkAttributeName, at: characterIndex, effectiveRange: nil) as? URL
+        let rawURL = textStorage.attribute(.link, at: characterIndex, effectiveRange: nil) as? URL
         if let unwrappedURL = rawURL {
             delegate?.textView?(textView, didPressLink: unwrappedURL)
         }

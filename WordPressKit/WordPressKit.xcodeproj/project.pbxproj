@@ -1368,7 +1368,6 @@
 		E1EF5D5E1F9F3CA700B6D53E /* Plugins */ = {
 			isa = PBXGroup;
 			children = (
-				E13EE1441F3323C300C15787 /* PluginState.swift */,
 				E1EF5D5C1F9F329900B6D53E /* SitePluginCapabilities.swift */,
 			);
 			name = Plugins;
@@ -1498,7 +1497,7 @@
 				TargetAttributes = {
 					9368C77A1EC5EF1B0092CE8E = {
 						CreatedOnToolsVersion = 8.3.2;
-						LastSwiftMigration = 0830;
+						LastSwiftMigration = 0910;
 						ProvisioningStyle = Automatic;
 					};
 					9368C7831EC5EF1B0092CE8E = {
@@ -2087,7 +2086,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -2112,7 +2112,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.automattic.WordPressKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -2231,7 +2232,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.automattic.WordPressKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = "Release-Internal";
 		};
@@ -2329,7 +2331,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.automattic.WordPressKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = "Release-Alpha";
 		};

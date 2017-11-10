@@ -239,7 +239,7 @@ import WordPressShared
     ///
     /// - Parameter sender: The close button that was tapped.
     ///
-    func handleCloseTapped(_ sender: UIBarButtonItem) {
+    @objc func handleCloseTapped(_ sender: UIBarButtonItem) {
         delegate?.didDismissSharingAccountViewController(self)
     }
 

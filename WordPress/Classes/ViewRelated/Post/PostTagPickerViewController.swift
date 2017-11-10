@@ -395,9 +395,9 @@ private class SuggestionsDataSource: NSObject, PostTagPickerDataSource {
         guard range.location != NSNotFound else {
             return highlighted
         }
-        let font = UIFont.systemFont(ofSize: WPStyleGuide.tableviewTextFont().pointSize, weight: UIFontWeightBold)
+        let font = UIFont.systemFont(ofSize: WPStyleGuide.tableviewTextFont().pointSize, weight: .bold)
         highlighted.setAttributes([
-            NSFontAttributeName: font,
+            NSAttributedStringKey.font: font,
             ], range: range)
         return highlighted
     }

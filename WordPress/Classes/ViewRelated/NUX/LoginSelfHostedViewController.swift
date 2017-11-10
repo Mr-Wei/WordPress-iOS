@@ -312,7 +312,7 @@ class LoginSelfHostedViewController: LoginViewController, SigninKeyboardResponde
     }
 
 
-    func handleOnePasswordButtonTapped(_ sender: UIButton) {
+    @objc func handleOnePasswordButtonTapped(_ sender: UIButton) {
         view.endEditing(true)
 
         SigninHelpers.fetchOnePasswordCredentials(self, sourceView: sender, loginFields: loginFields) { [unowned self] (loginFields) in
@@ -332,12 +332,12 @@ class LoginSelfHostedViewController: LoginViewController, SigninKeyboardResponde
     // MARK: - Keyboard Notifications
 
 
-    func handleKeyboardWillShow(_ notification: Foundation.Notification) {
+    @objc func handleKeyboardWillShow(_ notification: Foundation.Notification) {
         keyboardWillShow(notification)
     }
 
 
-    func handleKeyboardWillHide(_ notification: Foundation.Notification) {
+    @objc func handleKeyboardWillHide(_ notification: Foundation.Notification) {
         keyboardWillHide(notification)
     }
 }

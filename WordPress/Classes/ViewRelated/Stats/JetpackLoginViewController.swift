@@ -153,9 +153,9 @@ class JetpackLoginViewController: UIViewController {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = .center
 
-        let attributes: StyledHTMLAttributes = [ .BodyAttribute: [ NSFontAttributeName: UIFont.systemFont(ofSize: 14),
-                                                                   NSForegroundColorAttributeName: WPStyleGuide.allTAllShadeGrey(),
-                                                                   NSParagraphStyleAttributeName: paragraphStyle ]]
+        let attributes: StyledHTMLAttributes = [ .BodyAttribute: [ NSAttributedStringKey.font.rawValue: UIFont.systemFont(ofSize: 14),
+                                                                   NSAttributedStringKey.foregroundColor.rawValue: WPStyleGuide.allTAllShadeGrey(),
+                                                                   NSAttributedStringKey.paragraphStyle.rawValue: paragraphStyle ]]
 
         let attributedCode = NSAttributedString.attributedStringWithHTML(string, attributes: attributes)
         let attributedCodeHighlighted = attributedCode.mutableCopy() as! NSMutableAttributedString
@@ -180,10 +180,10 @@ class JetpackLoginViewController: UIViewController {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = .center
 
-        let attributes: StyledHTMLAttributes = [ .BodyAttribute: [ NSFontAttributeName: UIFont.systemFont(ofSize: 14),
-                                                                   NSForegroundColorAttributeName: WPStyleGuide.allTAllShadeGrey(),
-                                                                   NSUnderlineStyleAttributeName: NSUnderlineStyle.styleSingle.rawValue as AnyObject,
-                                                                   NSParagraphStyleAttributeName: paragraphStyle ]]
+        let attributes: StyledHTMLAttributes = [ .BodyAttribute: [ NSAttributedStringKey.font.rawValue: UIFont.systemFont(ofSize: 14),
+                                                                   NSAttributedStringKey.foregroundColor.rawValue: WPStyleGuide.allTAllShadeGrey(),
+                                                                   NSAttributedStringKey.underlineStyle.rawValue: NSUnderlineStyle.styleSingle.rawValue as AnyObject,
+                                                                   NSAttributedStringKey.paragraphStyle.rawValue: paragraphStyle ]]
 
         let attributedCode = NSAttributedString.attributedStringWithHTML(string, attributes: attributes)
         let attributedCodeHighlighted = attributedCode.mutableCopy() as! NSMutableAttributedString
@@ -224,7 +224,7 @@ class JetpackLoginViewController: UIViewController {
         NotificationCenter.default.removeObserver(self, name: .UITextFieldTextDidChange, object: verificationCodeTextField)
     }
 
-    func textFieldChanged(_ notification: Foundation.Notification) {
+    @objc func textFieldChanged(_ notification: Foundation.Notification) {
         updateSignInButton()
     }
 
@@ -242,7 +242,7 @@ class JetpackLoginViewController: UIViewController {
         NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillHide, object: nil)
     }
 
-    func keyboardWillShow(_ notification: Foundation.Notification) {
+    @objc func keyboardWillShow(_ notification: Foundation.Notification) {
         scrollView.isScrollEnabled = true
         var info = notification.userInfo!
         let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue.size
@@ -260,7 +260,7 @@ class JetpackLoginViewController: UIViewController {
         }
     }
 
-    func keyboardWillBeHidden(_ notification: Notification) {
+    @objc func keyboardWillBeHidden(_ notification: Notification) {
         scrollView.contentInset = UIEdgeInsets.zero
         scrollView.scrollIndicatorInsets = UIEdgeInsets.zero
         scrollView.isScrollEnabled = false
@@ -372,7 +372,7 @@ class JetpackLoginViewController: UIViewController {
         })
     }
 
-    func hideKeyboard() {
+    @objc func hideKeyboard() {
         view.endEditing(true)
     }
 

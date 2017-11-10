@@ -43,7 +43,7 @@ class LoginProloguePageViewController: UIPageViewController {
         pageControl = newControl
     }
 
-    func handlePageControlValueChanged(sender: UIPageControl) {
+    @objc func handlePageControlValueChanged(sender: UIPageControl) {
         guard let currentPage = viewControllers?.first,
             let currentIndex = pages.index(of: currentPage) else {
             return

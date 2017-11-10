@@ -33,7 +33,7 @@ extension SpecialTagAttachmentRenderer: TextViewAttachmentImageProvider {
         UIGraphicsBeginImageContextWithOptions(size, false, 0)
 
         let label = attachment.text.uppercased()
-        let attributes = [NSForegroundColorAttributeName: textColor]
+        let attributes = [NSAttributedStringKey.foregroundColor: textColor]
         let colorMessage = NSAttributedString(string: label, attributes: attributes)
 
         let textRect = colorMessage.boundingRect(with: size, options: [.usesLineFragmentOrigin, .usesFontLeading], context: nil)

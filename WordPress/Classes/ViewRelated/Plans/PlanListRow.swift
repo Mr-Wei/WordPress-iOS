@@ -31,16 +31,16 @@ struct PlanListRow: ImmuTableRow {
 
     struct Formatter {
         static let titleAttributes: [String: Any] = [
-            NSFontAttributeName: WPStyleGuide.tableviewTextFont(),
-            NSForegroundColorAttributeName: WPStyleGuide.tableViewActionColor()
+            NSAttributedStringKey.font.rawValue: WPStyleGuide.tableviewTextFont(),
+            NSAttributedStringKey.foregroundColor.rawValue: WPStyleGuide.tableViewActionColor()
         ]
         static let priceAttributes: [String: Any] = [
-            NSFontAttributeName: WPFontManager.systemRegularFont(ofSize: 14.0),
-            NSForegroundColorAttributeName: WPStyleGuide.darkGrey()
+            NSAttributedStringKey.font.rawValue: WPFontManager.systemRegularFont(ofSize: 14.0),
+            NSAttributedStringKey.foregroundColor.rawValue: WPStyleGuide.darkGrey()
         ]
         static let pricePeriodAttributes: [String: Any] = [
-            NSFontAttributeName: WPFontManager.systemItalicFont(ofSize: 14.0),
-            NSForegroundColorAttributeName: WPStyleGuide.grey()
+            NSAttributedStringKey.font.rawValue: WPFontManager.systemItalicFont(ofSize: 14.0),
+            NSAttributedStringKey.foregroundColor.rawValue: WPStyleGuide.grey()
         ]
 
         static func attributedTitle(_ title: String, price: String, active: Bool) -> NSAttributedString {
@@ -51,8 +51,8 @@ struct PlanListRow: ImmuTableRow {
 
             if active {
                 let currentPlanAttributes: [String: Any] = [
-                    NSFontAttributeName: WPFontManager.systemSemiBoldFont(ofSize: 11.0),
-                    NSForegroundColorAttributeName: WPStyleGuide.validGreen()
+                    NSAttributedStringKey.font.rawValue: WPFontManager.systemSemiBoldFont(ofSize: 11.0),
+                    NSAttributedStringKey.foregroundColor.rawValue: WPStyleGuide.validGreen()
                 ]
                 let currentPlan = NSLocalizedString("Current Plan", comment: "").localizedUppercase
                 let attributedCurrentPlan = NSAttributedString(string: currentPlan, attributes: currentPlanAttributes)

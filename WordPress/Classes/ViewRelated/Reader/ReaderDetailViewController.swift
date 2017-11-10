@@ -271,7 +271,7 @@ open class ReaderDetailViewController: UIViewController, UIViewControllerRestora
 
     // MARK: - Multitasking Splitview Support
 
-    func handleApplicationDidBecomeActive(_ notification: Foundation.Notification) {
+    @objc func handleApplicationDidBecomeActive(_ notification: Foundation.Notification) {
         view.layoutIfNeeded()
     }
 
@@ -532,7 +532,7 @@ open class ReaderDetailViewController: UIViewController, UIViewControllerRestora
             attribute: .width,
             multiplier: ratio,
             constant: 0)
-        constraint.priority = UILayoutPriorityDefaultHigh
+        constraint.priority = .defaultHigh
         featuredImageView.addConstraint(constraint)
         featuredImageView.setNeedsUpdateConstraints()
         featuredImageView.image = image
@@ -956,7 +956,7 @@ open class ReaderDetailViewController: UIViewController, UIViewControllerRestora
     }
 
 
-    func didTapHeaderAvatar(_ gesture: UITapGestureRecognizer) {
+    @objc func didTapHeaderAvatar(_ gesture: UITapGestureRecognizer) {
         if gesture.state != .ended {
             return
         }
@@ -974,7 +974,7 @@ open class ReaderDetailViewController: UIViewController, UIViewControllerRestora
     }
 
 
-    func didTapFeaturedImage(_ gesture: UITapGestureRecognizer) {
+    @objc func didTapFeaturedImage(_ gesture: UITapGestureRecognizer) {
         if gesture.state != .ended {
             return
         }
@@ -1010,12 +1010,12 @@ open class ReaderDetailViewController: UIViewController, UIViewControllerRestora
     }
 
 
-    func didTapShareButton(_ sender: UIButton) {
+    @objc func didTapShareButton(_ sender: UIButton) {
         sharingController.shareReaderPost(post!, fromView: sender, inViewController: self)
     }
 
 
-    func handleBlockSiteNotification(_ notification: Foundation.Notification) {
+    @objc func handleBlockSiteNotification(_ notification: Foundation.Notification) {
         if let userInfo = notification.userInfo, let aPost = userInfo["post"] as? NSObject {
             if aPost == post! {
                 _ = navigationController?.popViewController(animated: true)

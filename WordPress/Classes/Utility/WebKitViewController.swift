@@ -171,11 +171,11 @@ class WebKitViewController: UIViewController {
         })
     }
 
-    func close() {
+    @objc func close() {
         dismiss(animated: true, completion: nil)
     }
 
-    func share() {
+    @objc func share() {
         guard let url = webView.url else {
             return
         }
@@ -190,19 +190,19 @@ class WebKitViewController: UIViewController {
 
     }
 
-    func refresh() {
+    @objc func refresh() {
         webView.reload()
     }
 
-    func goBack() {
+    @objc func goBack() {
         webView.goBack()
     }
 
-    func goForward() {
+    @objc func goForward() {
         webView.goForward()
     }
 
-    func openInSafari() {
+    @objc func openInSafari() {
         guard let url = webView.url else {
             return
         }

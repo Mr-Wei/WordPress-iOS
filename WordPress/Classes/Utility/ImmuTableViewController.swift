@@ -111,7 +111,7 @@ final class ImmuTableViewController: UITableViewController, ImmuTablePresenter {
         ImmuTable.registerRows(rows, tableView: tableView)
     }
 
-    func loadModel() {
+    @objc func loadModel() {
         handler.viewModel = controller.tableViewModelWithPresenter(self)
         noticeMessage = controller.noticeMessage
     }

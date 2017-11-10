@@ -175,11 +175,11 @@ class AztecAttachmentViewController: UITableViewController {
 
     // MARK: - Helper methods
 
-    func handleCancelButtonTapped(sender: UIBarButtonItem) {
+    @objc func handleCancelButtonTapped(sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
 
-    func handleDoneButtonTapped(sender: UIBarButtonItem) {
+    @objc func handleDoneButtonTapped(sender: UIBarButtonItem) {
         let checkedAlt = alt == "" ? nil : alt
         onUpdate?(alignment, size, checkedAlt)
         dismiss(animated: true, completion: nil)

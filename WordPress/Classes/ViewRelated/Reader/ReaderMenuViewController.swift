@@ -203,7 +203,7 @@ import WordPressShared
 
     /// Handle the UIApplicationWillTerminate notification.
     //
-    func handleApplicationWillTerminate(_ notification: Foundation.Notification) {
+    @objc func handleApplicationWillTerminate(_ notification: Foundation.Notification) {
         // Its important to clean up stale content before unflagging, otherwise
         // content we want to preserve for state restoration might also be
         // deleted.
@@ -213,7 +213,7 @@ import WordPressShared
 
     /// When logged out return the nav stack to the menu
     ///
-    func handleAccountChanged(_ notification: Foundation.Notification) {
+    @objc func handleAccountChanged(_ notification: Foundation.Notification) {
         // Reset the selected index path
         restorableSelectedIndexPath = defaultIndexPath
 
@@ -231,7 +231,7 @@ import WordPressShared
 
     /// Sync the Reader's menu
     ///
-    func syncTopics() {
+    @objc func syncTopics() {
         if isSyncing {
             return
         }
@@ -322,7 +322,7 @@ import WordPressShared
 
     /// Dismisses a presented view controller.
     ///
-    func dismissModal() {
+    @objc func dismissModal() {
         dismiss(animated: true, completion: nil)
     }
 

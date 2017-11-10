@@ -171,7 +171,7 @@ class LoginWPComViewController: LoginViewController, SigninKeyboardResponder {
         WPAppAnalytics.track(.loginForgotPasswordClicked)
     }
 
-    func handleOnePasswordButtonTapped(_ sender: UIButton) {
+    @objc func handleOnePasswordButtonTapped(_ sender: UIButton) {
         view.endEditing(true)
 
         SigninHelpers.fetchOnePasswordCredentials(self, sourceView: sender, loginFields: loginFields) { [weak self] (loginFields) in
@@ -197,11 +197,11 @@ class LoginWPComViewController: LoginViewController, SigninKeyboardResponder {
 
     // MARK: - Keyboard Notifications
 
-    func handleKeyboardWillShow(_ notification: Foundation.Notification) {
+    @objc func handleKeyboardWillShow(_ notification: Foundation.Notification) {
         keyboardWillShow(notification)
     }
 
-    func handleKeyboardWillHide(_ notification: Foundation.Notification) {
+    @objc func handleKeyboardWillHide(_ notification: Foundation.Notification) {
         keyboardWillHide(notification)
     }
 

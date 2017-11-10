@@ -13,20 +13,20 @@ extension WPStyleGuide {
         }
 
         public static func summaryRegularStyle() -> [String: AnyObject] {
-            return  [NSParagraphStyleAttributeName: summaryParagraph,
-                     NSFontAttributeName: summaryRegularFont,
-                     NSForegroundColorAttributeName: WPStyleGuide.littleEddieGrey()]
+            return  [NSAttributedStringKey.paragraphStyle.rawValue: summaryParagraph,
+                     NSAttributedStringKey.font.rawValue: summaryRegularFont,
+                     NSAttributedStringKey.foregroundColor.rawValue: WPStyleGuide.littleEddieGrey()]
         }
 
         public static func summaryBoldStyle() -> [String: AnyObject] {
-            return [NSParagraphStyleAttributeName: summaryParagraph,
-                    NSFontAttributeName: summaryBoldFont,
-                    NSForegroundColorAttributeName: WPStyleGuide.littleEddieGrey()]
+            return [NSAttributedStringKey.paragraphStyle.rawValue: summaryParagraph,
+                    NSAttributedStringKey.font.rawValue: summaryBoldFont,
+                    NSAttributedStringKey.foregroundColor.rawValue: WPStyleGuide.littleEddieGrey()]
         }
 
         public static func timestampStyle() -> [String: AnyObject] {
-            return  [NSFontAttributeName: timestampFont,
-                     NSForegroundColorAttributeName: WPStyleGuide.allTAllShadeGrey()]
+            return  [NSAttributedStringKey.font.rawValue: timestampFont,
+                     NSAttributedStringKey.foregroundColor.rawValue: WPStyleGuide.allTAllShadeGrey()]
         }
 
         public static func backgroundColor() -> UIColor {
@@ -50,7 +50,7 @@ extension WPStyleGuide {
         }
 
         private static var summaryBoldFont: UIFont {
-            return WPStyleGuide.fontForTextStyle(.footnote, fontWeight: UIFontWeightSemibold)
+            return WPStyleGuide.fontForTextStyle(.footnote, fontWeight: UIFont.Weight.semibold.rawValue)
         }
 
         private static var summaryLineSize: CGFloat {

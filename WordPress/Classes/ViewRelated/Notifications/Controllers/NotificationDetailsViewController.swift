@@ -391,7 +391,7 @@ extension NotificationDetailsViewController {
             self?.replyCommentWithBlock(block, content: content)
         }
 
-        replyTextView.setContentCompressionResistancePriority(UILayoutPriorityRequired, for: .vertical)
+        replyTextView.setContentCompressionResistancePriority(.required, for: .vertical)
 
         self.replyTextView = replyTextView
     }
@@ -768,7 +768,7 @@ private extension NotificationDetailsViewController {
 // MARK: - Notification Helpers
 //
 extension NotificationDetailsViewController {
-    func notificationWasUpdated(_ notification: Foundation.Notification) {
+    @objc func notificationWasUpdated(_ notification: Foundation.Notification) {
         let updated   = notification.userInfo?[NSUpdatedObjectsKey]   as? Set<NSManagedObject> ?? Set()
         let refreshed = notification.userInfo?[NSRefreshedObjectsKey] as? Set<NSManagedObject> ?? Set()
         let deleted   = notification.userInfo?[NSDeletedObjectsKey]   as? Set<NSManagedObject> ?? Set()

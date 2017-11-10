@@ -22,7 +22,7 @@ extension NSAttributedString {
         guard let data = styledString.data(using: String.Encoding.utf8),
             let attributedString = try? NSMutableAttributedString(
             data: data,
-            options: [ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: NSNumber(value: String.Encoding.utf8.rawValue) ],
+            options: [ NSAttributedString.DocumentAttributeKey.documentType: NSAttributedString.DocumentType.html, NSAttributedString.DocumentAttributeKey.characterEncoding: NSNumber(value: String.Encoding.utf8.rawValue) ],
             documentAttributes: nil) else {
                 // if creating the html-ed string fails (and it has, thus this change) we return the string without any styling
                 return NSAttributedString(string: htmlString)
@@ -35,7 +35,7 @@ extension NSAttributedString {
         let paragraphStyle = NSMutableParagraphStyle()
         if let attributes = attributes,
             let bodyAttributes = attributes[.BodyAttribute],
-            let pStyle = bodyAttributes[NSParagraphStyleAttributeName] as? NSParagraphStyle {
+            let pStyle = bodyAttributes[.paragraphStyle] as? NSParagraphStyle {
                 paragraphStyle.setParagraphStyle(pStyle)
         }
 
@@ -43,7 +43,7 @@ extension NSAttributedString {
         paragraphStyle.paragraphSpacing = 0
         paragraphStyle.paragraphSpacingBefore = 0
 
-        attributedString.addAttribute(NSParagraphStyleAttributeName,
+        attributedString.addAttribute(.paragraphStyle,
                                    value: paragraphStyle,
                                    range: NSMakeRange(0, attributedString.string.count - 1))
 
@@ -70,19 +70,19 @@ extension NSAttributedString {
     /// raw objects (e.g. `UIColor`) into CSS text.
     fileprivate class func cssStyleForAttributeName(_ attributeName: String, attribute: AnyObject) -> String? {
         switch attributeName {
-        case NSFontAttributeName:
+        case .font:
             if let font = attribute as? UIFont {
                 let size = font.pointSize
                 let boldStyle = "font-weight: " + (font.isBold ? "bold;" : "normal;")
                 let italicStyle = "font-style: " + (font.isItalic ? "italic;" : "normal;")
                 return "font-family: -apple-system; font-size: \(size)px; " + boldStyle + italicStyle
             }
-        case NSForegroundColorAttributeName:
+        case .foregroundColor:
             if let color = attribute as? UIColor,
                 let colorHex = color.hexString() {
                 return "color: #\(colorHex);"
             }
-        case NSUnderlineStyleAttributeName:
+        case .underlineStyle:
             if let style = attribute as? Int {
                 if style == NSUnderlineStyle.styleNone.rawValue {
                     return "text-decoration: none;"

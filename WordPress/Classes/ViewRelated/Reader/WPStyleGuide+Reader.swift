@@ -26,8 +26,8 @@ extension WPStyleGuide {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = Cards.defaultLineSpacing
         return [
-            NSParagraphStyleAttributeName: paragraphStyle,
-            NSFontAttributeName: font,
+            NSAttributedStringKey.paragraphStyle.rawValue: paragraphStyle,
+            NSAttributedStringKey.font.rawValue: font,
         ]
     }
 
@@ -65,9 +65,9 @@ extension WPStyleGuide {
         paragraphStyle.lineSpacing = Cards.crossPostLineSpacing
 
         return [
-            NSParagraphStyleAttributeName: paragraphStyle,
-            NSFontAttributeName: font,
-            NSForegroundColorAttributeName: darkGrey()
+            NSAttributedStringKey.paragraphStyle.rawValue: paragraphStyle,
+            NSAttributedStringKey.font.rawValue: font,
+            NSAttributedStringKey.foregroundColor.rawValue: darkGrey()
         ]
     }
 
@@ -78,9 +78,9 @@ extension WPStyleGuide {
         paragraphStyle.lineSpacing = Cards.crossPostLineSpacing
 
         return [
-            NSParagraphStyleAttributeName: paragraphStyle,
-            NSFontAttributeName: font,
-            NSForegroundColorAttributeName: grey()
+            NSAttributedStringKey.paragraphStyle.rawValue: paragraphStyle,
+            NSAttributedStringKey.font.rawValue: font,
+            NSAttributedStringKey.foregroundColor.rawValue: grey()
         ]
     }
 
@@ -91,9 +91,9 @@ extension WPStyleGuide {
         paragraphStyle.lineSpacing = Cards.crossPostLineSpacing
 
         return [
-            NSParagraphStyleAttributeName: paragraphStyle,
-            NSFontAttributeName: font,
-            NSForegroundColorAttributeName: grey()
+            NSAttributedStringKey.paragraphStyle.rawValue: paragraphStyle,
+            NSAttributedStringKey.font.rawValue: font,
+            NSAttributedStringKey.foregroundColor.rawValue: grey()
         ]
     }
 
@@ -104,8 +104,8 @@ extension WPStyleGuide {
         paragraphStyle.lineSpacing = Cards.titleLineSpacing
 
         return [
-            NSParagraphStyleAttributeName: paragraphStyle,
-            NSFontAttributeName: font
+            NSAttributedStringKey.paragraphStyle.rawValue: paragraphStyle,
+            NSAttributedStringKey.font.rawValue: font
         ]
     }
 
@@ -117,8 +117,8 @@ extension WPStyleGuide {
         paragraphStyle.lineBreakMode = .byTruncatingTail
 
         return [
-            NSParagraphStyleAttributeName: paragraphStyle,
-            NSFontAttributeName: font
+            NSAttributedStringKey.paragraphStyle.rawValue: paragraphStyle,
+            NSAttributedStringKey.font.rawValue: font
         ]
     }
 
@@ -126,7 +126,7 @@ extension WPStyleGuide {
         let font = WPStyleGuide.fontForTextStyle(Cards.subtextTextStyle)
 
         return [
-            NSFontAttributeName: font,
+            NSAttributedStringKey.font.rawValue: font,
         ]
     }
 
@@ -141,8 +141,8 @@ extension WPStyleGuide {
         paragraphStyle.maximumLineHeight = lineHeight
 
         return [
-            NSParagraphStyleAttributeName: paragraphStyle,
-            NSFontAttributeName: font
+            NSAttributedStringKey.paragraphStyle.rawValue: paragraphStyle,
+            NSAttributedStringKey.font.rawValue: font
         ]
     }
 
@@ -157,8 +157,8 @@ extension WPStyleGuide {
         paragraphStyle.alignment = .center
 
         return [
-            NSParagraphStyleAttributeName: paragraphStyle,
-            NSFontAttributeName: font
+            NSAttributedStringKey.paragraphStyle.rawValue: paragraphStyle,
+            NSAttributedStringKey.font.rawValue: font
         ]
     }
 
@@ -303,7 +303,7 @@ extension WPStyleGuide {
         guard let titleLabel = button.titleLabel else {
             return
         }
-        WPStyleGuide.configureLabel(titleLabel, textStyle: Cards.loadMoreButtonTextStyle, fontWeight: UIFontWeightSemibold)
+        WPStyleGuide.configureLabel(titleLabel, textStyle: Cards.loadMoreButtonTextStyle, fontWeight: UIFont.Weight.semibold.rawValue)
         button.setTitleColor(UIColor.white, for: UIControlState())
     }
 

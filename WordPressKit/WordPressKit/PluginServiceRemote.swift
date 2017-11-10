@@ -68,7 +68,7 @@ public class PluginServiceRemote: ServiceRemoteWordPressComREST {
         wordPressComRestApi.POST(
             path,
             parameters: nil,
-            success: { _ in
+            success: { _,_  in
                 success()
             }, failure: { (error, _) in
                 failure(error)
@@ -86,7 +86,7 @@ public class PluginServiceRemote: ServiceRemoteWordPressComREST {
         wordPressComRestApi.POST(
             path,
             parameters: parameters,
-            success: { _ in
+            success: { _,_  in
                 success()
             },
             failure: { (error, _) in

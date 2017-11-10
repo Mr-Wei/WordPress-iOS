@@ -200,8 +200,8 @@ extension NotificationBlock {
             }
 
             if let rangeURL = range.url, let linksColor = linksColor {
-                theString.addAttribute(NSLinkAttributeName, value: rangeURL, range: shiftedRange)
-                theString.addAttribute(NSForegroundColorAttributeName, value: linksColor, range: shiftedRange)
+                theString.addAttribute(.link, value: rangeURL, range: shiftedRange)
+                theString.addAttribute(.foregroundColor, value: linksColor, range: shiftedRange)
             }
         }
 

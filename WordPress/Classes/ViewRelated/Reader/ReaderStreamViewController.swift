@@ -624,9 +624,8 @@ import WordPressShared
         // Require horizontal fitting since our width is known.
         // Use the lower fitting size priority as we want to minimize our height consumption
         // according to the layout's contraints and intrinsic size.
-        let size = headerView.systemLayoutSizeFitting(fittingSize,
-                                                          withHorizontalFittingPriority: UILayoutPriorityRequired,
-                                                          verticalFittingPriority: UILayoutPriorityFittingSizeLevel)
+        let size = headerView.systemLayoutSizeFitting(fittingSize, withHorizontalFittingPriority: .required, verticalFittingPriority: .fittingSizeLevel)
+
         // Update the tableHeaderView itself. Classic.
         var headerFrame = headerView.frame
         headerFrame.size.height = size.height
@@ -956,7 +955,7 @@ import WordPressShared
     /// to update the list UI to properly reflect the change. Listen for the
     /// notification and call blockSiteForPost as needed.
     ///
-    func handleBlockSiteNotification(_ notification: Foundation.Notification) {
+    @objc func handleBlockSiteNotification(_ notification: Foundation.Notification) {
         guard let userInfo = notification.userInfo, let aPost = userInfo["post"] as? ReaderPost else {
             return
         }
@@ -977,7 +976,7 @@ import WordPressShared
 
     /// Handles the user initiated pull to refresh action.
     ///
-    func handleRefresh(_ sender: UIRefreshControl) {
+    @objc func handleRefresh(_ sender: UIRefreshControl) {
         if !canSync() {
             cleanupAfterSync()
             if !connectionAvailable() {
@@ -1418,7 +1417,7 @@ import WordPressShared
     }
 
 
-    func handleContextDidSaveNotification(_ notification: Foundation.Notification) {
+    @objc func handleContextDidSaveNotification(_ notification: Foundation.Notification) {
         ContextManager.sharedInstance().mergeChanges(displayContext, fromContextDidSave: notification)
     }
 

@@ -176,7 +176,7 @@ extension LoginViewController: SigninWPComSyncHandler, LoginFacadeDelegate {
     ///
     /// - Parameter loading: True if the form should be configured to a "loading" state.
     ///
-    func configureViewLoading(_ loading: Bool) {
+    @objc func configureViewLoading(_ loading: Bool) {
         configureSubmitButton(animating: loading)
         navigationItem.hidesBackButton = loading
     }
@@ -229,7 +229,7 @@ extension LoginViewController: SigninWPComSyncHandler, LoginFacadeDelegate {
 
     // Update safari stored credentials. Call after a successful sign in.
     ///
-    func updateSafariCredentialsIfNeeded() {
+    @objc func updateSafariCredentialsIfNeeded() {
         SigninHelpers.updateSafariCredentialsIfNeeded(loginFields)
     }
 

@@ -349,7 +349,7 @@ class MeViewController: UITableViewController, UIViewControllerRestoration {
 
     // MARK: - Notification observers
 
-    func refreshModelWithNotification(_ notification: Foundation.Notification) {
+    @objc func refreshModelWithNotification(_ notification: Foundation.Notification) {
         reloadViewModel()
     }
 

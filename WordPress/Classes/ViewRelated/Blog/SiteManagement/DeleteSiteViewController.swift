@@ -113,9 +113,9 @@ open class DeleteSiteViewController: UITableViewController {
 
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = .left
-        let attributes = [ NSFontAttributeName: UIFont.systemFont(ofSize: 17.0),
-                           NSForegroundColorAttributeName: WPStyleGuide.darkGrey(),
-                           NSParagraphStyleAttributeName: paragraphStyle ]
+        let attributes = [ NSAttributedStringKey.font: UIFont.systemFont(ofSize: 17.0),
+                           NSAttributedStringKey.foregroundColor: WPStyleGuide.darkGrey(),
+                           NSAttributedStringKey.paragraphStyle: paragraphStyle ]
         let htmlAttributes: StyledHTMLAttributes = [ .BodyAttribute: attributes]
 
         let attributedText1 = NSAttributedString.attributedStringWithHTML(paragraph1, attributes: htmlAttributes)
@@ -127,9 +127,9 @@ open class DeleteSiteViewController: UITableViewController {
         combinedAttributedString.append(attributedText2)
         sectionThreeBody.attributedText = combinedAttributedString
 
-        let contactButtonAttributes = [ NSFontAttributeName: UIFont.systemFont(ofSize: 17.0),
-                                        NSForegroundColorAttributeName: WPStyleGuide.wordPressBlue(),
-                                        NSUnderlineStyleAttributeName: NSUnderlineStyle.styleSingle.rawValue as AnyObject]
+        let contactButtonAttributes = [ NSAttributedStringKey.font: UIFont.systemFont(ofSize: 17.0),
+                                        NSAttributedStringKey.foregroundColor: WPStyleGuide.wordPressBlue(),
+                                        NSAttributedStringKey.underlineStyle: NSUnderlineStyle.styleSingle.rawValue as AnyObject]
         supportButton.setAttributedTitle(NSAttributedString(string: NSLocalizedString("Contact Support", comment: "Button label for contacting support"), attributes: contactButtonAttributes),
                                          for: .normal)
     }
@@ -197,7 +197,7 @@ open class DeleteSiteViewController: UITableViewController {
 
     /// Verifies site address as password for Delete Site
     ///
-    func alertTextFieldDidChange(_ sender: UITextField) {
+    @objc func alertTextFieldDidChange(_ sender: UITextField) {
         guard let deleteAction = (presentedViewController as? UIAlertController)?.actions.last else {
             return
         }

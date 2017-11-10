@@ -174,7 +174,7 @@ import WordPressShared.WPStyleGuide
 
 
     // MARK: - Gestures Recognizers
-    open func backgroundWasTapped() {
+    @objc open func backgroundWasTapped() {
         _ = becomeFirstResponder()
     }
 

@@ -233,12 +233,12 @@ class Login2FAViewController: LoginViewController, SigninKeyboardResponder, UITe
     // MARK: - Handle application state changes.
 
 
-    func applicationBecameInactive() {
+    @objc func applicationBecameInactive() {
         pasteboardBeforeBackground = UIPasteboard.general.string
     }
 
 
-    func applicationBecameActive() {
+    @objc func applicationBecameActive() {
         let emptyField = verificationCodeField.text?.isEmpty ?? true
         guard emptyField,
             let pasteString = UIPasteboard.general.string,
@@ -258,12 +258,12 @@ class Login2FAViewController: LoginViewController, SigninKeyboardResponder, UITe
     // MARK: - Keyboard Notifications
 
 
-    func handleKeyboardWillShow(_ notification: Foundation.Notification) {
+    @objc func handleKeyboardWillShow(_ notification: Foundation.Notification) {
         keyboardWillShow(notification)
     }
 
 
-    func handleKeyboardWillHide(_ notification: Foundation.Notification) {
+    @objc func handleKeyboardWillHide(_ notification: Foundation.Notification) {
         keyboardWillHide(notification)
     }
 }

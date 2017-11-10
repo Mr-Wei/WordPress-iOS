@@ -273,7 +273,7 @@ open class WordPressOrgXMLRPCApi: NSObject {
             var userInfo: [AnyHashable: Any] = error.userInfo
             userInfo[type(of: self).WordPressOrgXMLRPCApiErrorKeyData] = data
             userInfo[type(of: self).WordPressOrgXMLRPCApiErrorKeyDataString] = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
-            return NSError(domain: error.domain, code: error.code, userInfo: userInfo)
+            return NSError(domain: error.domain, code: error.code, userInfo: userInfo as! [String : Any])
         }
         return error
     }

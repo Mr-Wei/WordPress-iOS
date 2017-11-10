@@ -156,7 +156,7 @@ class LoginEmailViewController: LoginViewController, SigninKeyboardResponder {
         googleLoginButton = button
     }
 
-    func googleLoginTapped() {
+    @objc func googleLoginTapped() {
         awaitingGoogle = true
         configureViewLoading(true)
 
@@ -379,7 +379,7 @@ class LoginEmailViewController: LoginViewController, SigninKeyboardResponder {
     }
 
 
-    func handleOnePasswordButtonTapped(_ sender: UIButton) {
+    @objc func handleOnePasswordButtonTapped(_ sender: UIButton) {
         view.endEditing(true)
 
         SigninHelpers.fetchOnePasswordCredentials(self, sourceView: sender, loginFields: loginFields) { [weak self] (loginFields) in
@@ -410,14 +410,14 @@ class LoginEmailViewController: LoginViewController, SigninKeyboardResponder {
     // MARK: - Keyboard Notifications
 
 
-    func handleKeyboardWillShow(_ notification: Foundation.Notification) {
+    @objc func handleKeyboardWillShow(_ notification: Foundation.Notification) {
         keyboardWillShow(notification)
 
         adjustGoogleButtonVisibility(true)
     }
 
 
-    func handleKeyboardWillHide(_ notification: Foundation.Notification) {
+    @objc func handleKeyboardWillHide(_ notification: Foundation.Notification) {
         keyboardWillHide(notification)
 
         adjustGoogleButtonVisibility(false)

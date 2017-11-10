@@ -70,7 +70,7 @@ class AztecVerificationPromptHelper: NSObject {
         completionBlock = then
     }
 
-    func updateVerificationStatus() {
+    @objc func updateVerificationStatus() {
         accountService.updateUserDetails(for: wpComAccount,
                                          success: { [weak self] in
 

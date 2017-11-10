@@ -5,24 +5,24 @@ extension WPStyleGuide {
     public struct AlertView {
         // MARK: - Title Styles
         public static let titleRegularFont          = WPStyleGuide.fontForTextStyle(.callout,
-                                                                                    fontWeight: UIFontWeightLight)
+                                                                                    fontWeight: UIFont.Weight.light.rawValue)
         public static let titleColor                = WPStyleGuide.grey()
 
 
         // MARK: - Detail Styles
         public static let detailsRegularFont        = WPStyleGuide.fontForTextStyle(.footnote)
         public static let detailsBoldFont           = WPStyleGuide.fontForTextStyle(.footnote,
-                                                                                    fontWeight: UIFontWeightSemibold)
+                                                                                    fontWeight: UIFont.Weight.semibold.rawValue)
         public static let detailsColor              = WPStyleGuide.darkGrey()
 
         public static let detailsRegularAttributes  = [
-                                                            NSFontAttributeName: detailsRegularFont,
-                                                            NSForegroundColorAttributeName: detailsColor
+                                                            NSAttributedStringKey.font: detailsRegularFont,
+                                                            NSAttributedStringKey.foregroundColor: detailsColor
                                                       ]
 
         public static let detailsBoldAttributes     = [
-                                                            NSFontAttributeName: detailsBoldFont,
-                                                            NSForegroundColorAttributeName: detailsColor
+                                                            NSAttributedStringKey.font: detailsBoldFont,
+                                                            NSAttributedStringKey.foregroundColor: detailsColor
                                                       ]
 
         // MARK: - Button Styles

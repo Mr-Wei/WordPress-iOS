@@ -99,8 +99,8 @@ extension WPStyleGuide {
     ///
     public class func fontForTextStyle(_ style: UIFontTextStyle, fontWeight weight: CGFloat) -> UIFont {
         var fontDescriptor = UIFontDescriptor.preferredFontDescriptor(withTextStyle: style)
-        let traits = [UIFontWeightTrait: weight]
-        fontDescriptor = fontDescriptor.addingAttributes([UIFontDescriptorTraitsAttribute: traits])
+        let traits = [UIFontDescriptor.TraitKey.weight: weight]
+        fontDescriptor = fontDescriptor.addingAttributes([.traits: traits])
         return UIFont(descriptor: fontDescriptor, size: CGFloat(0.0))
     }
 

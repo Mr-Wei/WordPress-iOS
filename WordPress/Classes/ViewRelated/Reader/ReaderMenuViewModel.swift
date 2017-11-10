@@ -537,7 +537,7 @@ enum ReaderDefaultMenuItemOrder: Int {
     /// Handles a notification that the signed in wpcom account was changed.
     /// All the content in the view model is updated as a result.
     ///
-    func handleWordPressComAccountChanged(_ notification: Foundation.Notification) {
+    @objc func handleWordPressComAccountChanged(_ notification: Foundation.Notification) {
         // Update predicates to correctly fetch following or not following.
         updateAndPerformListsFetchRequest()
         updateAndPerformTagsFetchRequest()

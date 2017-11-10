@@ -367,7 +367,7 @@ public protocol ThemePresenter: class {
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
 
-    open func keyboardDidShow(_ notification: Foundation.Notification) {
+    @objc open func keyboardDidShow(_ notification: Foundation.Notification) {
         let keyboardFrame = localKeyboardFrameFromNotification(notification)
         let keyboardHeight = collectionView.frame.maxY - keyboardFrame.origin.y
 
@@ -376,7 +376,7 @@ public protocol ThemePresenter: class {
         collectionView.scrollIndicatorInsets.bottom = keyboardHeight
     }
 
-    open func keyboardWillHide(_ notification: Foundation.Notification) {
+    @objc open func keyboardWillHide(_ notification: Foundation.Notification) {
         let tabBarHeight = tabBarController?.tabBar.bounds.height ?? 0
 
         collectionView.contentInset.top = topLayoutGuide.length
@@ -899,7 +899,7 @@ public protocol ThemePresenter: class {
         }
     }
 
-    open func activatePresentingTheme() {
+    @objc open func activatePresentingTheme() {
         suspendedSearch = ""
         _ = navigationController?.popViewController(animated: true)
         activateTheme(presentingTheme)
